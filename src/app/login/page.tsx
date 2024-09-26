@@ -1,31 +1,31 @@
-"use client";  // Correção aqui
+"use client"; 
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';  // Correção: usar o useRouter
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const [erro, setErro] = useState('');
-    const router = useRouter();  // Correção: instanciar o useRouter
-
-    const login = (e) => {
-        e.preventDefault();
+    const router = useRouter();
     
-        if (email === "gustavo.silva19@estudante.ifms.edu.br" && senha === "123456789") {
-            router.push('/Index');  // Correção: usar router.push para redirecionamento client-side
+    const login = (event: React.FormEvent<HTMLFormElement>) => {
+        event.preventDefault(); 
+
+        if (email === "gustavo.silva19@estudante.ifms.edu.br" && senha === "123456") {
+            router.push('/');   
         } else {
-            setErro('Login falhou. Por favor, verifique suas credenciais.');
+            setErro('Login falhou. Por favor, use a senha 123456');
         }
     }
 
     return (
-        <div style={styles.container}>
+        <div style={styles.container}>  
             <form onSubmit={login} style={styles.form}>
-                <h2>Login</h2>
+                <h2 >Login</h2>
                 <div style={styles.inputGroup}>
                     <label htmlFor="email">E-mail:</label>
-                    <input
+                    <input  
                         type="email"
                         id="email"
                         value={email}
@@ -63,6 +63,7 @@ const styles = {
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
         backgroundColor: '#fff',
     },
+
     inputGroup: {
         marginBottom: '1rem',
     },
