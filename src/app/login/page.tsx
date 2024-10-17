@@ -44,6 +44,7 @@ export default function Login() {
                     />
                 </div>
                 <button type="submit" style={styles.button}>Login</button>
+                <a href='cadastro'>Cadastro</a>
                 {erro && <p style={styles.error}>{erro}</p>}
             </form>
         </div>
